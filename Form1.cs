@@ -196,9 +196,18 @@ namespace Video_Converter
         {
             try
             {
-                Process process = new Process();
-                process.StartInfo.FileName = @"start https://github.com/Konohamaru04/Video-Converter";
-                process.Start();
+                string url = "https://github.com/Konohamaru04/Video-Converter"; // Replace with your desired URL
+
+                // Check if the URL is valid
+                if (Uri.TryCreate(url, UriKind.Absolute, out Uri result))
+                {
+                    // Open the URL in the default web browser
+                    Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+                }
+                else
+                {
+                    CustomMessageBox.ShowDialogBox("Invalid URL format.", "Error!");
+                }
             }
             catch (Exception ex)
             {
