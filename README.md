@@ -6,7 +6,7 @@
 
 ## About
 
-Simple video converter from .ts to .mp4.
+Simple video converter.
 
 ## Requirements
 
@@ -18,7 +18,7 @@ Simple video converter from .ts to .mp4.
 1. Ensure FFmpeg is installed and available in your system PATH.
 2. Clone this repository.
 3. Build the project using Visual Studio or `dotnet build`.
-4. Run the executable and follow the prompts to convert your .ts files to .mp4.
+4. Run the executable and follow the prompts to convert your video files.
 
 ## License
 
