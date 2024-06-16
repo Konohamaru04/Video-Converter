@@ -26,6 +26,12 @@ namespace Video_Converter
 
         private void btnSelectVideo_Click(object sender, EventArgs e)
         {
+            // Check if ffmpeg is installed
+            if (!IsFFMpegInstalled())
+            {
+                CustomMessageBox.ShowDialogBox("ffmpeg is not installed or cannot be found on your system. Please install ffmpeg to continue.", "Error!");
+                return;
+            }
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "Video Files|*.mp4;*.avi;*.mkv;*.mov;*.flv;*.wmv;*.webm;*.ts";
@@ -48,6 +54,32 @@ namespace Video_Converter
             }
 
 
+        }
+
+        // Method to check if ffmpeg is installed
+        private bool IsFFMpegInstalled()
+        {
+            try
+            {
+                ProcessStartInfo startInfo = new ProcessStartInfo
+                {
+                    FileName = "ffmpeg",
+                    Arguments = "-version",
+                    RedirectStandardError = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                };
+
+                using (Process process = Process.Start(startInfo))
+                {
+                    process.WaitForExit();
+                    return process.ExitCode == 0;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         private void chkUpscale_CheckedChanged(object sender, EventArgs e)
