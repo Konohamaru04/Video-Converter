@@ -1,4 +1,5 @@
 # Video-Converter
+[![Build](https://github.com/Konohamaru04/Video-Converter/actions/workflows/Build.yml/badge.svg)](https://github.com/Konohamaru04/Video-Converter/actions/workflows/Build.yml) [![Release](https://github.com/Konohamaru04/Video-Converter/actions/workflows/Release.yml/badge.svg)](https://github.com/Konohamaru04/Video-Converter/actions/workflows/Release.yml)
 
 <p align="center">
   <img src="ts.png" alt="TS to MP4" width="400">
